@@ -1,12 +1,14 @@
 ---
 name: create-and-publish-skill
 description: >
-  Publishes Claude Code skills to skills.sh by validating SKILL.md structure,
-  creating a GitHub repository, and pushing the skill files. Handles both
-  first-time publishing and updates to existing skills.
+  Creates and publishes Claude Code skills to skills.sh following Anthropic's
+  official skill-building guide. Validates SKILL.md structure, creates a GitHub
+  repository, and pushes the skill files. Handles both first-time publishing
+  and updates to existing skills.
   Use when user mentions "publish skill", "publish to skills.sh", "release skill",
   "share skill", "push skill to GitHub", "make skill installable", "create skill",
-  or "deploy skill". Do NOT use for general git operations or non-skill publishing.
+  "create a new skill", "build a skill", or "deploy skill".
+  Do NOT use for general git operations or non-skill publishing.
 compatibility: Claude Code
 license: MIT
 metadata:
@@ -16,13 +18,25 @@ metadata:
 
 # Create and Publish Skill
 
-Automates publishing Claude Code skills to [skills.sh](https://skills.sh). Validates skill structure, creates a GitHub repository, copies files to the publish directory, and pushes — handling both first-time publishing and updates.
+Automates creating and publishing Claude Code skills to [skills.sh](https://skills.sh). All skills created with this tool follow [Anthropic's official skill-building guide](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf).
 
 ## Installation
 
 ```bash
 npx skills add alexismunoz1/create-and-publish-skill
 ```
+
+## Skill Design Philosophy
+
+All skills MUST follow Anthropic's official guidelines. Before creating or validating any skill, consult `references/official-skill-building-guide.md` for the full specification. Key principles:
+
+- **Progressive Disclosure:** Frontmatter is always loaded (level 1), SKILL.md body loads on relevance (level 2), references/ load on demand (level 3). This minimizes token usage.
+- **Composability:** Skills should work alongside others, never assume exclusivity.
+- **Portability:** Skills work across Claude.ai, Claude Code, and API.
+- **Description is critical:** It determines when Claude loads the skill. Must include WHAT + WHEN (trigger phrases) + key capabilities. Max 1024 chars, no XML tags.
+- **No README.md inside skill folder:** All docs go in SKILL.md or references/. README is only for the GitHub repo (for human visitors).
+- **Folder naming:** kebab-case only, must match the `name` field.
+- **Keep SKILL.md under 5,000 words.** Move detailed content to `references/`.
 
 ## Workflow
 
@@ -194,3 +208,17 @@ If there are blocking errors, list them all and stop. If there are only warnings
 2. Copies updated files from source
 3. Shows diff of changes
 4. Commits and pushes the update
+
+### "Create a new skill"
+
+1. Asks user for skill name and purpose
+2. Consults `references/official-skill-building-guide.md` for proper structure
+3. Creates directory at `.agents/skills/{skill-name}/`
+4. Generates SKILL.md with proper frontmatter (name, description with triggers, metadata)
+5. Creates references/ if needed
+6. Validates against the official checklist
+7. Optionally publishes immediately
+
+## Reference Materials
+
+- `references/official-skill-building-guide.md` — Anthropic's complete guide to building skills for Claude, including frontmatter specification, design patterns, testing methodology, distribution best practices, and troubleshooting
