@@ -1,11 +1,11 @@
-# publish-skill
+# create-and-publish-skill
 
 Publishes Claude Code skills to skills.sh by validating SKILL.md structure, creating a GitHub repository, and pushing the skill files. Handles both first-time publishing and updates to existing skills.
 
 ## Installation
 
 ```bash
-npx skills add alexismunoz1/publish-skill
+npx skills add alexismunoz1/create-and-publish-skill
 ```
 
 ## What is this?

@@ -1,12 +1,12 @@
 ---
-name: publish-skill
+name: create-and-publish-skill
 description: >
   Publishes Claude Code skills to skills.sh by validating SKILL.md structure,
   creating a GitHub repository, and pushing the skill files. Handles both
   first-time publishing and updates to existing skills.
   Use when user mentions "publish skill", "publish to skills.sh", "release skill",
-  "share skill", "push skill to GitHub", "make skill installable", or
-  "deploy skill". Do NOT use for general git operations or non-skill publishing.
+  "share skill", "push skill to GitHub", "make skill installable", "create skill",
+  or "deploy skill". Do NOT use for general git operations or non-skill publishing.
 compatibility: Claude Code
 license: MIT
 metadata:
@@ -14,14 +14,14 @@ metadata:
   version: 1.0.0
 ---
 
-# Publish Skill
+# Create and Publish Skill
 
 Automates publishing Claude Code skills to [skills.sh](https://skills.sh). Validates skill structure, creates a GitHub repository, copies files to the publish directory, and pushes — handling both first-time publishing and updates.
 
 ## Installation
 
 ```bash
-npx skills add alexismunoz1/publish-skill
+npx skills add alexismunoz1/create-and-publish-skill
 ```
 
 ## Workflow
