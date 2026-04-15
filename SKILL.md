@@ -14,7 +14,7 @@ description: >
 compatibility: Claude Code
 license: MIT
 metadata:
-  author: alexismunoz1
+  author: amunozdev
   version: 1.1.0
 ---
 
@@ -25,7 +25,7 @@ Automates creating, validating, and publishing Claude Code skills to [skills.sh]
 ## Installation
 
 ```bash
-npx skills add alexismunoz1/create-and-publish-skill
+npx skills add amunozdev/create-and-publish-skill
 ```
 
 ## Skill Design Philosophy
@@ -191,11 +191,11 @@ If there are blocking errors, list them all and stop. If there are only warnings
    Authenticate: gh auth login
    ```
 
-2. **Check if repo exists:** Run `gh repo view alexismunoz1/{SKILL_NAME} --json name` (suppress stderr).
+2. **Check if repo exists:** Run `gh repo view amunozdev/{SKILL_NAME} --json name` (suppress stderr).
    - If it exists, note "updating existing repo".
    - If it doesn't exist, create it:
      ```bash
-     gh repo create alexismunoz1/{SKILL_NAME} --public --description "{description from frontmatter}"
+     gh repo create amunozdev/{SKILL_NAME} --public --description "{description from frontmatter}"
      ```
 
 3. **Set publish directory:** `PUBLISH_DIR=/Users/mac/dev/skill-dev/{SKILL_NAME}/`
@@ -225,9 +225,9 @@ If there are blocking errors, list them all and stop. If there are only warnings
 
    ## Installation
 
-   ```bash
-   npx skills add alexismunoz1/{SKILL_NAME}
-   ```
+```bash
+npx skills add amunozdev/{SKILL_NAME}
+```
 
    ## What is this?
 
@@ -245,7 +245,7 @@ If there are blocking errors, list them all and stop. If there are only warnings
    git add -A
    git commit -m "Initial publish of {SKILL_NAME} skill"
    git branch -M main
-   git remote add origin git@github.com:alexismunoz1/{SKILL_NAME}.git
+   git remote add origin git@github.com:amunozdev/{SKILL_NAME}.git
    git push -u origin main
    ```
 
@@ -278,8 +278,8 @@ If there are blocking errors, list them all and stop. If there are only warnings
    ```
    Published {SKILL_NAME} successfully!
 
-   Repository: https://github.com/alexismunoz1/{SKILL_NAME}
-   Install:    npx skills add alexismunoz1/{SKILL_NAME}
+   Repository: https://github.com/amunozdev/{SKILL_NAME}
+   Install:    npx skills add amunozdev/{SKILL_NAME}
    ```
 
 3. **Create symlinks** if they don't already exist:
@@ -327,7 +327,7 @@ If there are blocking errors, list them all and stop. If there are only warnings
 
 1. Identifies skill at `.agents/skills/token-optimizer/`
 2. Validates SKILL.md structure, frontmatter, and description quality
-3. Checks/creates `alexismunoz1/token-optimizer` repo
+3. Checks/creates `amunozdev/token-optimizer` repo
 4. Copies files to publish directory with correct structure
 5. Pushes to GitHub
 6. Reports install command

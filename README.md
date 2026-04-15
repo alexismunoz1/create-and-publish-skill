@@ -5,7 +5,7 @@ Creates and publishes Claude Code skills to [skills.sh](https://skills.sh) follo
 ## Installation
 
 ```bash
-npx skills add alexismunoz1/create-and-publish-skill
+npx skills add amunozdev/create-and-publish-skill
 ```
 
 ## What is this?
